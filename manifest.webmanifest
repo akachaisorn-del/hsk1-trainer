@@ -1,9 +1,1 @@
-{
-  "name": "HSK1 Trainer v2",
-  "short_name": "HSK1 Trainer",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#0f172a",
-  "icons": []
-}
+{"name": "HSK1 Trainer"}
