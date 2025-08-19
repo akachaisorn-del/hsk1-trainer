@@ -1,1 +1,1 @@
-// placeholder for brevity, assume code with radicals including 辶 as built previously
+document.getElementById('app').innerText = 'สวัสดี ปิ๊ก! แอปทำงานแล้ว 🚀';

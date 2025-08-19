@@ -1,20 +1,13 @@
-<!doctype html>
-<html lang="th">
+<!DOCTYPE html>
+<html lang="zh">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>HSK3 · Radical Word Trainer (＋辶)</title>
-  <meta name="theme-color" content="#0f172a" />
-  <link rel="manifest" href="./manifest.webmanifest" />
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSK1 Chinese Sentence Trainer</title>
 </head>
-<body class="min-h-screen bg-slate-50 text-slate-900">
-  <div id="root" class="mx-auto max-w-5xl p-4"></div>
-  <script type="module" src="./app.js"></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(()=>{}));
-    }
-  </script>
+<body>
+    <h1>HSK1 Trainer</h1>
+    <div id="app">Loading...</div>
+    <script src="app.js"></script>
 </body>
 </html>
