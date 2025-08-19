@@ -3,18 +3,66 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>HSK1 Trainer · 中文→ไทย</title>
+  <title>HSK3 · Radical Word Trainer (Vanilla)</title>
   <meta name="theme-color" content="#0f172a" />
   <link rel="manifest" href="./manifest.webmanifest" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>button:disabled{opacity:.5;cursor:not-allowed}</style>
 </head>
 <body class="min-h-screen bg-slate-50 text-slate-900">
-  <div id="root" class="mx-auto max-w-5xl p-4"></div>
-  <script type="module" src="./app.js"></script>
+  <div class="mx-auto max-w-5xl p-4">
+    <header class="flex items-center gap-3">
+      <h1 class="text-xl font-semibold">HSK3 · Radical Word Trainer</h1>
+      <span id="count" class="ml-auto text-sm text-slate-500"></span>
+    </header>
+
+    <div id="radicals" class="flex flex-wrap gap-2 mt-3"></div>
+
+    <section class="grid gap-3 rounded-2xl border p-4 bg-white mt-4">
+      <div class="flex items-start justify-between gap-2">
+        <div>
+          <div class="text-sm text-slate-500">คำภาษาจีน</div>
+          <div id="hanzi" class="text-3xl font-medium tracking-wide select-text">—</div>
+          <div id="pinyin" class="text-sm text-slate-500 mt-1 select-text hidden"></div>
+        </div>
+        <div class="flex gap-2">
+          <button id="speakBtn" class="px-3 py-1.5 rounded-xl border">ฟังเสียง</button>
+        </div>
+      </div>
+
+      <div class="grid gap-2">
+        <label class="text-sm">พิมพ์ความหมายภาษาไทย</label>
+        <input id="answer" class="w-full rounded-xl border px-3 py-2" placeholder="เช่น: เข้า / ใกล้ / ส่ง ...">
+        <div class="flex gap-2 items-center">
+          <button id="checkBtn" class="px-4 py-2 rounded-xl bg-slate-900 text-white">ตรวจคำตอบ</button>
+          <button id="resetBtn" class="px-4 py-2 rounded-xl border">พิมพ์ใหม่</button>
+          <button id="fillBtn" class="px-4 py-2 rounded-xl border">ใส่ตัวอย่างคำตอบ</button>
+          <button id="prevBtn" class="ml-auto px-3 py-2 rounded-xl border">ก่อนหน้า</button>
+          <button id="nextBtn" class="px-3 py-2 rounded-xl border">ข้อต่อไป</button>
+        </div>
+        <div id="result" class="text-sm whitespace-pre-wrap"></div>
+      </div>
+
+      <div class="grid gap-2 border-t pt-4">
+        <div class="flex items-center gap-2">
+          <div class="font-medium">ฝึกพูด (จีนกลาง)</div>
+          <div class="text-xs text-slate-500">* ต้องเปิดผ่าน HTTPS/Chrome</div>
+        </div>
+        <div class="flex gap-2 items-center">
+          <button id="micBtn" class="px-3 py-2 rounded-xl border" disabled>ไมค์ไม่พร้อม</button>
+        </div>
+        <div id="micOut" class="rounded-xl border p-3 bg-white min-h-[44px] text-sm text-slate-700"></div>
+      </div>
+
+      <div class="text-xs text-slate-500">* พินอินจะแสดงเมื่อกดเฉลย เพื่อฝึกจำตัวจีนก่อน</div>
+    </section>
+  </div>
+
+  <script src="./app.js"></script>
   <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(()=>{}));
-  }
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+    }
   </script>
 </body>
 </html>
